@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time Clock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="clock.css">
+    <script>
+        let a;
+        let date
+        let time
+        let timezone
+        const options={weekday: 'long',year: 'numeric', month:'long', day:'numeric' };
+        setInterval(() => {
+        a=new Date();
+        date=a.toLocaleDateString(undefined,options)
+        time = a.getHours()+":"+a.getMinutes()+":"+a.getSeconds()
+        document.getElementById("time").innerHTML=time + '<br> on '  + date;
+        timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        document.getElementById("zone").innerHTML=timezone;
+    }, 1000);
+    </script>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg  text-bg-info">
+        <div class="container-fluid">
+
+          <a class="navbar-brand  " href="#"> <h2>Time By Clock</h2></a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Timer</a></li>
+                  <li><a class="dropdown-item" href="#">Alarm</a></li>
+                  <li><a class="dropdown-item" href="#">World Clock</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+            
+      </nav><div class="text-center">
+        <img src="clock.png" class="rounded" alt="Clock pic" height="200">
+      </div>
+      <div class="col d-flex justify-content-center">
+         <div class="card"  style="width: 35rem; height: fit-content; align-content: center;" >
+        <div class="card-body">
+            
+          <h1 class="card-title">Current Time is : <span id="time"></span></h1>
+          
+          <h4 class="card-subtitle mb-2 text-muted" >Time Zone : <span id="zone"></h4>
+            <br>
+            <hr>
+            
+          <p class="card-text"> <br>We kill time. We save time. We rob and get robbed of time, we lose time, and we have all the time in the world. But no one of us is powerful enough to stop the march of time or slow it down. <br>We are here to show you the Time. </p>
+          <a href="https://www.timeanddate.com/worldclock/" class="card-link">World Clock</a>
+          <a href="#" class="card-link">Timer for any event</a>
+        </div>
+      </div>
+    </div>
+     
+    <div class="card" style="width:50rem ; height: 9rem;">
+        <div class="card-header text-bg-info">
+          Quote
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>"Lost time is never found again"</p>
+            <footer class="blockquote-footer"><cite title="Source Title">Benjamin Franklin</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>
